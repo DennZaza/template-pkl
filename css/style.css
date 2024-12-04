@@ -274,6 +274,7 @@ a:focus {
   position: relative;
   z-index: 5;
   margin: 35px 25px 0 25px;
+  position: relative;
 }
 
 .do_section .do_container .box .img-box {
@@ -313,6 +314,29 @@ a:focus {
   height: 90%;
   z-index: 3;
   background-size: cover;
+}
+
+.do_section .do_container .box::after {
+  content: attr(data-tooltip); /* Menggunakan atribut data-tooltip untuk teks */
+  position: absolute;
+  bottom: 29px; /* Tooltip muncul di bawah ikon */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #333; /* Warna latar tooltip */
+  color: #fff; /* Warna teks tooltip */
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 12px;
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 10;
+}
+
+.do_section .do_container .box:hover::after {
+  opacity: 1;
+  visibility: visible;
 }
 
 .do_section .do_container .arrow-start::before {
